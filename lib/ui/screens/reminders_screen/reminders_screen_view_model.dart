@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
-class ContactScreenViewModel extends ChangeNotifier {
+class RemindersScreenViewModel extends ChangeNotifier {
   Widget listItems;
-  ContactScreenViewModel({required this.listItems}) {
+  RemindersScreenViewModel({required this.listItems}) {
     updateItems(listItems);
   }
   List<Widget> _items = [];

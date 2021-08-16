@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:leads_sticker/core/constants/colors.dart';
-import 'package:leads_sticker/ui/custom_widgets/bottom_bav_bar/bottom_nav_bar_screen.dart';
-import 'package:leads_sticker/ui/screens/dashboard_screen/dashboard_screen_view_model.dart';
-import 'package:leads_sticker/ui/screens/onboarding_screen/onboarding_screen_model_view.dart';
+import 'package:leads_sticker/ui/screens/reminders_screen/reminders_screen.dart';
 import 'package:provider/provider.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      bottomNavigationBar: BottomNavBar(),
+    return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.format_list_bulleted),
         backgroundColor: kBlueColor,
@@ -69,19 +65,29 @@ class DashboardScreen extends StatelessWidget {
             ),
             Row(
               children: [
-                MyCard(
-                    iconData: Icons.people_alt_sharp,
-                    text1: "Total",
-                    text2: "Team Members",
-                    text3: "1045"),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, "contact_screen");
+                  },
+                  child: MyCard(
+                      iconData: Icons.people_alt_sharp,
+                      text1: "Total",
+                      text2: "Team Members",
+                      text3: "1045"),
+                ),
                 SizedBox(
                   width: 18.w,
                 ),
-                MyCard(
-                    iconData: Icons.notifications,
-                    text1: "Pending",
-                    text2: "Reminders",
-                    text3: "05"),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, "reminders_screen");
+                  },
+                  child: MyCard(
+                      iconData: Icons.notifications,
+                      text1: "Pending",
+                      text2: "Reminders",
+                      text3: "05"),
+                ),
               ],
             ),
             SizedBox(
@@ -91,7 +97,7 @@ class DashboardScreen extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "contact_screen");
+                    Navigator.pushNamed(context, "new_contact_screen");
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(kBlueColor),
@@ -111,7 +117,9 @@ class DashboardScreen extends StatelessWidget {
                   width: 18.w,
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, "dialing_screen");
+                    },
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                           Colors.lightGreen[50],
@@ -147,7 +155,7 @@ class DashboardScreen extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    );
   }
 }
 

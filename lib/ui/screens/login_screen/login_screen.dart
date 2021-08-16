@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:leads_sticker/core/constants/colors.dart';
 import 'package:leads_sticker/core/constants/strings.dart';
-import 'package:leads_sticker/ui/custom_widgets/text_field_widget.dart';
+import 'package:leads_sticker/ui/custom_widgets/text_field_widget/text_field_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -67,8 +67,7 @@ class LoginScreen extends StatelessWidget {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(
-                        context, "onboarding_screen");
+                    Navigator.pushReplacementNamed(context, "root_screen");
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(kBlueColor),

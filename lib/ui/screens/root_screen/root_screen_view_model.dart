@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class BottomNavBarViewModel extends ChangeNotifier {
+class RootScreenViewModel extends ChangeNotifier {
   int _itemIndex = 0;
   static Color _lightWhite = Colors.white54;
   static Color _brightWhite = Colors.white;
@@ -14,7 +14,7 @@ class BottomNavBarViewModel extends ChangeNotifier {
   Color get item3Color => _item3Color;
   int get itemIndex => _itemIndex;
 
-  set getItemColor(int index) {
+  set setIndex(int index) {
     if (index == 0) {
       _itemIndex = 0;
       _item1Color = _brightWhite;
@@ -26,6 +26,7 @@ class BottomNavBarViewModel extends ChangeNotifier {
       _item1Color = _lightWhite;
       _item2Color = _brightWhite;
       _item3Color = _lightWhite;
+
       notifyListeners();
     } else if (index == 2) {
       _itemIndex = 2;

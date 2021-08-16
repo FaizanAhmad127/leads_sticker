@@ -106,7 +106,7 @@ class OnBoardingScreen extends StatelessWidget {
                         .textColor),
               ),
               onSkip: () {
-                Navigator.pushReplacementNamed(context, "dashboard_screen");
+                Navigator.pushReplacementNamed(context, "login_screen");
               },
               next: Text(
                 "Next",
@@ -117,7 +117,7 @@ class OnBoardingScreen extends StatelessWidget {
                 ),
               ),
               onDone: () {
-                Navigator.pushReplacementNamed(context, "dashboard_screen");
+                Navigator.pushReplacementNamed(context, "login_screen");
               },
               onChange: (index) {
                 Provider.of<OnBoardingScreenViewModel>(context, listen: false)

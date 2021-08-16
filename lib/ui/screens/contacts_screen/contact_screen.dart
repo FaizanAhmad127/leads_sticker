@@ -6,76 +6,81 @@ import 'package:leads_sticker/ui/screens/contacts_screen/contact_screen_view_mod
 import 'package:provider/provider.dart';
 
 class ContactScreen extends StatelessWidget {
-  Widget listItem() {
-    return Container(
-      width: 329.w,
-      height: 129.h,
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.r),
-        ),
-        child: Padding(
-          padding: EdgeInsets.only(left: 23.w, top: 19.h, bottom: 16.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Brandon Wolfe",
-                style: TextStyle(
-                  fontSize: 15.sp,
-                  fontWeight: FontWeight.w500,
+  Widget listItem(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, "inbox_screen");
+      },
+      child: Container(
+        width: 329.w,
+        height: 129.h,
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+          child: Padding(
+            padding: EdgeInsets.only(left: 23.w, top: 19.h, bottom: 16.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Brandon Wolfe",
+                  style: TextStyle(
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
-              Text(
-                "(725) 777-4883",
-                style: TextStyle(fontSize: 13.sp, color: kBlueColor),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Text(
-                "Last message sent: 10:47PM | 01/02/21",
-                style: TextStyle(fontSize: 12.sp, color: Colors.grey),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Row(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFF91BC7A),
-                      border: Border.all(color: Color(0xFF91BC7A)),
+                Text(
+                  "(725) 777-4883",
+                  style: TextStyle(fontSize: 13.sp, color: kBlueColor),
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Text(
+                  "Last message sent: 10:47PM | 01/02/21",
+                  style: TextStyle(fontSize: 12.sp, color: Colors.grey),
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xFF91BC7A),
+                        border: Border.all(color: Color(0xFF91BC7A)),
+                      ),
+                      width: 68.w,
+                      height: 22.h,
+                      child: Center(
+                          child: Text(
+                        "Label 01",
+                        style: TextStyle(fontSize: 12.sp),
+                      )),
                     ),
-                    width: 68.w,
-                    height: 22.h,
-                    child: Center(
-                        child: Text(
-                      "Label 01",
-                      style: TextStyle(fontSize: 12.sp),
-                    )),
-                  ),
-                  SizedBox(
-                    width: 6.w,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFFFCE4EC),
-                      border: Border.all(color: Color(0xFFFCE4EC)),
+                    SizedBox(
+                      width: 6.w,
                     ),
-                    width: 68.w,
-                    height: 22.h,
-                    child: Center(
-                        child: Text(
-                      "Label 02",
-                      style: TextStyle(fontSize: 12.sp),
-                    )),
-                  ),
-                ],
-              )
-            ],
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xFFFCE4EC),
+                        border: Border.all(color: Color(0xFFFCE4EC)),
+                      ),
+                      width: 68.w,
+                      height: 22.h,
+                      child: Center(
+                          child: Text(
+                        "Label 02",
+                        style: TextStyle(fontSize: 12.sp),
+                      )),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -91,7 +96,7 @@ class ContactScreen extends StatelessWidget {
         backgroundColor: kBlueColor,
         leading: GestureDetector(
             onTap: () {
-              Navigator.pushReplacementNamed(context, "dashboard_screen");
+              Navigator.pushReplacementNamed(context, "root_screen");
             },
             child: Icon(Icons.arrow_back_sharp)),
         titleSpacing: 1,
@@ -153,7 +158,7 @@ class ContactScreen extends StatelessWidget {
             ),
             ChangeNotifierProvider(
               create: (context) =>
-                  ContactScreenViewModel(listItems: listItem()),
+                  ContactScreenViewModel(listItems: listItem(context)),
               builder: (context, viewModel) {
                 return Container(
                   height: 530.h,
